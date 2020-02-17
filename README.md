@@ -1,9 +1,7 @@
 # Serenity Parallel Execution Plugin
-=============
 A gradle plugin that enables parallel execution of automated Serenity BDD tests with a smaller configuration.
 
 ## General Description
-=============
 To run a Aerenity BDD suite, a property file with all capabilities related to the test environment and tests configuration,
 is needed. This plugin is an alternative that allows you to run a test suite in parallel (usin two or more property files) with
 a small configuration.
@@ -14,7 +12,6 @@ the specifications to develop [custom gradle plugins](https://docs.gradle.org/4.
 This plugin is specially useful when you are trying to execute mobile or desktop parallel tests.
 
 ## Usage
-=============
 To use the plugin you need Gradle version 4.1 or later and gradle wrapper, to start add the following section into your
 build.gradle file.
 
@@ -34,7 +31,6 @@ be executed).
 To run the test suite; ```./gradlew parallel``` must be executed.
 
 ## Task parallel
-=============
 With the previous configuration, this plugin guarantees that all scenarios in the test suite will be executed in every
 device with an associated properties file.
 Also, just a metgod, class or package can be executed to facilitate parallelism not only in execution environment but also in the
@@ -54,7 +50,6 @@ testsToRun=MakePayment
 All test per device will be run if no new property is added.
 
 ## Plugin output
-=============
 Parallel task will not finish after every test in every device is executed. Assuming that the source folder name was 'parallel',
 the output files will be as shown below:
 
@@ -65,7 +60,6 @@ the output files will be as shown below:
 ```
 
 ## Some recomendations
-=============
 1. The properties file name must be mnemonic (for example the device name) with no spaces or special characters. It is
     recomended in this way because this standard is taken into account to name the plugin outputs.
 
@@ -74,5 +68,4 @@ the output files will be as shown below:
 3. It is mandatory to have gradle wrapper installed.
 
 # How I can help?
-=============
 Review the issues, we hear new ideas.

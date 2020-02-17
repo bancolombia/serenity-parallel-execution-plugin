@@ -1,0 +1,73 @@
+plugins {
+    id 'groovy'
+    id 'java-gradle-plugin'
+    id "com.palantir.idea-test-fix" version "0.1.0"
+    id "com.gradle.plugin-publish" version "0.10.1"
+}
+
+apply plugin: 'jacoco'
+
+repositories {
+    jcenter()
+}
+
+jacoco {
+    toolVersion = "0.7.6.201602180812"
+    reportsDir = file("$buildDir/jacoco/")
+}
+
+dependencies {
+    implementation gradleApi()
+    implementation group: 'commons-io', name: 'commons-io', version: '2.6'
+    implementation group: 'com.google.guava', name: 'guava', version: '27.0.1-jre'
+    implementation group: 'org.apache.commons', name: 'commons-lang3', version: '3.8.1'
+    implementation group: 'org.apache.logging.log4j', name: 'log4j-core', version: '2.12.1'
+
+    testImplementation gradleTestKit()
+    testImplementation 'junit:junit:4+'
+    testImplementation group: 'org.powermock', name: 'powermock-module-junit4', version: '2.0.0'
+    testImplementation group: 'org.powermock', name: 'powermock-api-mockito2', version: '2.0.0'
+    testImplementation group: 'org.hamcrest', name: 'hamcrest', version: '2.1'
+    testCompile('org.spockframework:spock-core:1.1-groovy-2.4') {
+        exclude group: 'org.codehaus.groovy'
+    }
+}
+
+project.description     = 'Plugin to execute automated Serenity BDD tests in parallel easily'
+project.group           = 'co.com.bancolombia.certification'
+project.version         = '1.0.0'
+project.ext.pluginId    = 'serenity-parallel-execution-plugin'
+
+gradlePlugin {
+    plugins {
+        parallelPlugin {
+            id = project.pluginId
+            implementationClass = 'co.com.bancolombia.certifitacion.plugins.ParallelPlugin'
+        }
+    }
+}
+
+sourceSets {
+    functionalTest {
+        groovy.srcDir file('src/functionalTest/groovy')
+        resources.srcDir file('src/functionalTest/resources')
+        compileClasspath += sourceSets.main.output + configurations.testRuntime
+        runtimeClasspath += output + compileClasspath
+    }
+}
+
+task functionalTest(type: Test) {
+    description = 'Runs functional tests.'
+    group = 'verification'
+    testClassesDirs = sourceSets.functionalTest.output.classesDirs
+    classpath = sourceSets.functionalTest.runtimeClasspath
+    mustRunAfter test
+}
+
+pluginBundle {
+    website = 'https://github.com/bancolombia/serenity-parallel-execution-plugin'
+    vcsUrl = 'https://github.com/bancolombia/serenity-parallel-execution-plugin'
+    tags = ['gradle', 'plugin', 'serenity', 'paralellExecution', 'Bancolombia', 'OpenSource', 'Mobile', 'Desktop']
+}
+
+check.dependsOn functionalTest

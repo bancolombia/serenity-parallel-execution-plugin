@@ -38,11 +38,13 @@ project.group           = 'co.com.bancolombia.certification'
 project.version         = '1.0.0'
 project.ext.pluginId    = 'co.com.bancolombia.serenity-parallel-execution-plugin'
 
+
 gradlePlugin {
     plugins {
         parallelPlugin {
             id = project.pluginId
-            implementationClass = 'co.com.bancolombia.certifitacion.plugins.ParallelPlugin'
+            implementationClass = 'co.com.bancolombia.certification.plugins.ParallelPlugin'
+            displayName = 'Serenity Parallel Execution Plugin Bancolombia'
         }
     }
 }

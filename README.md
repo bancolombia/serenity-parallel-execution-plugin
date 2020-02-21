@@ -1,3 +1,6 @@
+![](https://github.com/bancolombia/serenity-parallel-execution-plugin/workflows/parallel-plugin-actions/badge.svg)
+[![codecov](https://codecov.io/gh/bancolombia/serenity-parallel-execution-plugin/branch/master/graph/badge.svg)](https://codecov.io/gh/bancolombia/serenity-parallel-execution-plugin)
+[![GitHub license](https://img.shields.io/github/license/Naereen/StrapDown.js.svg)](https://github.com/bancolombia/serenity-parallel-execution-plugin/blob/master/LICENSE)
 # Serenity Parallel Execution Plugin
 A gradle plugin that enables parallel execution of automated Serenity BDD tests with a smaller configuration.
 

@@ -45,7 +45,7 @@ gradlePlugin {
             id = project.pluginId
             implementationClass = 'co.com.bancolombia.certification.plugins.ParallelPlugin'
             displayName = 'Serenity Parallel Execution Plugin Bancolombia'
-            description = 'Serenity Parallel Execution Plugin for testing in Bancolombia'
+            description = 'Plugin to execute automated Serenity BDD tests in parallel easily'
         }
     }
 }

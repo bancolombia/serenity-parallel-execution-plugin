@@ -20,10 +20,10 @@ jobs:
           java-version: 1.8
       - name: Grant execute permission for gradlew
         run: chmod +x gradlew
-      - name: Execute jacocoTestReport
-        run: ./gradlew test jacocoTestReport && cp build/reports/jacoco/report.xml jacoco.xml || echo "Code coverage failed"
       - name: Build with Gradle
         run: ./gradlew build -x test -x functionalTest --refresh-dependencies --no-daemon --continue
+      - name: Execute jacocoTestReport
+        run: ./gradlew test jacocoTestReport && cp build/reports/jacoco/report.xml jacoco.xml || echo "Code coverage failed"
       - name: Run functional tests
         run: ./gradlew functionalTest
       - name: Push codeCoverage to Codecov
@@ -41,10 +41,10 @@ jobs:
           java-version: 1.8
       - name: Grant execute permission for gradlew
         run: chmod +x gradlew
-      - name: Execute jacocoTestReport
-        run: ./gradlew test jacocoTestReport && cp build/reports/jacoco/report.xml jacoco.xml || echo "Code coverage failed"
       - name: Build with Gradle
         run: ./gradlew build -x test -x functionalTest --refresh-dependencies --no-daemon --continue
+      - name: Execute jacocoTestReport
+        run: ./gradlew test jacocoTestReport && cp build/reports/jacoco/report.xml jacoco.xml || echo "Code coverage failed"
       - name: Run functional tests
         run: ./gradlew functionalTest
       - name: Push codeCoverage to Codecov

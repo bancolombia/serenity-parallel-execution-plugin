@@ -5,7 +5,7 @@
 A gradle plugin that enables parallel execution of automated Serenity BDD tests with a smaller configuration.
 
 ## General Description
-To run a Aerenity BDD suite, a property file with all capabilities related to the test environment and tests configuration,
+To run a Serenity BDD suite, a property file with all capabilities related to the test environment and tests configuration,
 is needed. This plugin is an alternative that allows you to run a test suite in parallel (usin two or more property files) with
 a small configuration.
 
@@ -36,7 +36,7 @@ To run the test suite; ```./gradlew parallel``` must be executed.
 ## Task parallel
 With the previous configuration, this plugin guarantees that all scenarios in the test suite will be executed in every
 device with an associated properties file.
-Also, just a metgod, class or package can be executed to facilitate parallelism not only in execution environment but also in the
+Also, just a method, class or package can be executed to facilitate parallelism not only in execution environment but also in the
 scenarios quantity. To do so, there is a new property (```testsToRun```) that must be added into the property file having in
 account the next notation:
 

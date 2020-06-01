@@ -35,7 +35,7 @@ dependencies {
 
 project.description     = 'Plugin to execute automated Serenity BDD tests in parallel easily'
 project.group           = 'co.com.bancolombia.certification'
-project.version         = '1.0.2'
+project.version         = '1.0.3'
 project.ext.pluginId    = 'co.com.bancolombia.serenity-parallel-execution-plugin'
 
 
